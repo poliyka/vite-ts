@@ -3,13 +3,13 @@
     <NGi>
       <NForm>
         <NFormItem label="身高(cm)" :validationStatus="inputHeightValidationStatus">
-          <NInputNumber v-model:value="height" :max="300" :min="0" placeholder="請輸入身高" />
+          <NInputNumber v-model:value="height" placeholder="請輸入身高" />
           <template #feedback>
             {{ inputHeightFeedback }}
           </template>
         </NFormItem>
         <NFormItem label="體重(Kg)" :validationStatus="inputWeightValidationStatus">
-          <NInputNumber v-model:value="weight" :max="300" :min="0" placeholder="請輸入體重" />
+          <NInputNumber v-model:value="weight" placeholder="請輸入體重" />
           <template #feedback>
             {{ inputWeightFeedback }}
           </template>
@@ -79,7 +79,9 @@ import { ref, computed } from "vue";
 import type { Ref } from "vue";
 import { NForm, NInputNumber, NFormItem, NGrid, NGi, NAlert, NButton } from "naive-ui";
 
-// define value
+/****************
+ * define value *
+ ****************/
 const height = ref<null | number>(null);
 const weight = ref<null | number>(null);
 const bmi = ref<number>(NaN);
@@ -100,12 +102,13 @@ function createWeightFeedback(value: number | null): string {
   if (value < 0 || value > 300) return "請輸入正常範圍";
   return "";
 }
+
 function createBMIStatus(
   height: number | null,
   weight: number | null,
   bmi: Ref<number>
 ): undefined | "Normal" | "Low" | "highWeight" | "LHighWeight" | "MHighWeight" | "OHighWeight" {
-  if (height == null || weight == null) return undefined;
+  if (height == null || height <= 0 || weight == null || weight <= 0) return undefined;
   bmi.value = Math.round((weight / Math.pow(height / 100, 2)) * 100) / 100;
 
   // check BMI
