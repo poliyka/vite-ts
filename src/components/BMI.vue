@@ -108,7 +108,8 @@ function createBMIStatus(
   weight: number | null,
   bmi: Ref<number>
 ): undefined | "Normal" | "Low" | "highWeight" | "LHighWeight" | "MHighWeight" | "OHighWeight" {
-  if (height == null || height <= 0 || weight == null || weight <= 0) return undefined;
+  if (height == null || weight == null) return undefined;
+  if (height <= 0 || weight <= 0 || height > 300 || weight > 300) return undefined;
   bmi.value = Math.round((weight / Math.pow(height / 100, 2)) * 100) / 100;
 
   // check BMI
