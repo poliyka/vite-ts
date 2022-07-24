@@ -8,6 +8,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5050:80
+      - 443:443
     volumes:
       - ./dist:/app
+      - ./docker/prod/ngnix/certs/vite.poliyka.xyz/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+      - ./docker/prod/ngnix/certs/vite.poliyka.xyz/privkey.pem:/etc/nginx/ssl/privkey.pem
     restart: always
