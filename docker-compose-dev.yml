@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  vite-frontend-dev:
+    container_name: vite-frontend-dev
+    user: root
+    build:
+      context: .
+      dockerfile: "docker/dev/Dockerfile"
+    entrypoint: "../entrypoint.sh"
+    restart: always
+    ports:
+      - "${APP_PORT:-5050}:5050"
+    env_file: .env
+    volumes:
+      - ./:/home/appuser/app

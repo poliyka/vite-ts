@@ -15,4 +15,4 @@ WORKDIR /home/appuser/app
 
 # RUN npm i
 
-COPY docker/production/entrypoint.sh /home/appuser/app/
+COPY docker/dev/entrypoint.sh /home/appuser/

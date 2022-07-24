@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  vite-frontend-prod:
+    container_name: vite-frontend-prod
+    build:
+      context: docker/prod
+      dockerfile: Dockerfile
+    ports:
+      - 5050:80
+    volumes:
+      - ./dist:/app
+    restart: always
