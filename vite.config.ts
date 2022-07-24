@@ -17,14 +17,7 @@ export default defineConfig(({ mode }) => {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
       },
     },
-    base: "/smart-dev/",
   };
-
-  if (mode == "production") {
-    defaultConfig.base = "/smart-prod/";
-  } else {
-    defaultConfig.base = "/smart-dev/";
-  }
 
   return defaultConfig;
 });
