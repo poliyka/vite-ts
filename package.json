@@ -2,7 +2,8 @@
   "name": "vite-ts",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "start:dev": "vite --mode development",
+    "start:prod": "vite --mode production",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
