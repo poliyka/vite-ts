@@ -11,6 +11,5 @@ services:
       - 443:443
     volumes:
       - ./dist:/app
-      - ./docker/prod/ngnix/certs/vite.poliyka.xyz/fullchain.pem:/etc/nginx/ssl/fullchain.pem
-      - ./docker/prod/ngnix/certs/vite.poliyka.xyz/privkey.pem:/etc/nginx/ssl/privkey.pem
+      - ./docker/prod/ngnix/dehydrated:/etc/dehydrated
     restart: always
