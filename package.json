@@ -2,10 +2,10 @@
   "name": "vite-ts",
   "version": "0.0.0",
   "scripts": {
-    "start:dev": "vite --mode development",
-    "start:prod": "vite --mode production",
+    "start:dev": "vite --mode development --port 3000",
+    "start:prod": "vite --mode production --port 3000",
     "build": "run-p type-check build-only",
-    "preview": "vite preview --port 4173",
+    "preview": "vite preview --port 5050 --host 0.0.0.0",
     "test:unit": "vitest --environment jsdom",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
